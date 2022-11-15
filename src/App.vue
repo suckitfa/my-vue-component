@@ -1,17 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <my-button 
+      @on-click="handleAppClick"
+    >点击</my-button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import MyButton from './components/MyButton.vue'
 export default {
   name: 'App',
+  provide: {
+    personInfo: {
+      age:19,
+      name:"bob"
+    }
+  },  
   components: {
-    HelloWorld
+    MyButton,
+  },
+  methods: {
+    handleAppClick(e,msg) {
+      console.log(e,msg)
+    }
   }
 }
 </script>
